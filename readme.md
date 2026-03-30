@@ -54,7 +54,7 @@ git add .
 <!-- cai nay dung de them nhung file hoac folder chi dinh vao git -->
 git add <file_or_folder>
 
-=== === === CAC BUOC THUC HIEN === === ===
+=== === === CAC BUOC THUC HIEN LAN DAU === === ===
 buoc 1: cai dat git tren may tinh
 buoc 2: tao tai khoan github
 buoc 3: tao repository tren github
@@ -66,3 +66,10 @@ buoc 7: chay lenh "git commit -m 'first commit'" de commit file vao git
 buoc 8: chay lenh "git branch -M main" de tao nhanh
 buoc 9: chay lenh "git remote add origin https://github.com/vodinhkhiem/blockchain.git" de them remote repository tren github
 buoc 10: chay lenh "git push -u origin main" de push code len github
+
+=== === === CAC BUOC THUC HIEN LAN SAU === === ===
+buoc 1: mo terminal, di chuyen den thu muc chua code cua ban
+buoc 2: chay lenh "git add ." de them tat ca file vao git co the ghi ten file hoac folder chi dinh vao git
+buoc 3: chay lenh "git status" de kiem tra xem co file nao chua duoc them vao git khong
+buoc 4: chay lenh "git commit -m 'ghi lai thay doi'" de commit file vao git
+buoc 5: chay lenh "git push" de push code len github
