@@ -28,3 +28,41 @@ BLOCKCHAIN/
 │
 ├── docker-compose.yml      <-- Kết nối cả 2 chạy cùng lúc
 └── README.md
+
+
+=== === === LENH TUONG TAC VOI GIT === === === 
+<!-- cai nay co tac dung tao duong dan den git-->
+git remote add origin https://github.com/vodinhkhiem/blockchain.git
+<!-- cai nay co tac dung chuyen sang nhanh main -->
+git branch -M main
+<!-- cai nay dung de up code truc tiep len nhanh main -->
+git push -u origin main
+<!-- cai nay dung de tao file README.md va khoi tao git -->
+echo "# blockchain" >> README.md
+<!-- cai nay dung de khoi tao git -->
+git init
+<!-- cai nay dung de them file README.md vao git -->
+git add README.md
+<!-- cai nay dung de commit file README.md -->
+git commit -m "first commit"
+<!-- cai nay dung de tao nhanh main -->
+git branch -M main
+<!-- cai nay dung de push code len nhanh main -->
+git push -u origin main
+<!-- cai nay dung de them tat ca file vao git -->
+git add .
+<!-- cai nay dung de them nhung file hoac folder chi dinh vao git -->
+git add <file_or_folder>
+
+=== === === CAC BUOC THUC HIEN === === ===
+buoc 1: cai dat git tren may tinh
+buoc 2: tao tai khoan github
+buoc 3: tao repository tren github
+buoc 4: mo terminal, di chuyen den thu muc chua code cua ban
+buoc 5: chay lenh "git init" de khoi tao git trong thu muc do
+buoc 6: chay lenh "git add ." de them tat ca file vao git
+<!-- git status de kiem tra xem co file nao chua duoc them vao git khong -->
+buoc 7: chay lenh "git commit -m 'first commit'" de commit file vao git
+buoc 8: chay lenh "git branch -M main" de tao nhanh
+buoc 9: chay lenh "git remote add origin https://github.com/vodinhkhiem/blockchain.git" de them remote repository tren github
+buoc 10: chay lenh "git push -u origin main" de push code len github
