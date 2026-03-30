@@ -73,3 +73,9 @@ buoc 2: chay lenh "git add ." de them tat ca file vao git co the ghi ten file ho
 buoc 3: chay lenh "git status" de kiem tra xem co file nao chua duoc them vao git khong
 buoc 4: chay lenh "git commit -m 'ghi lai thay doi'" de commit file vao git
 buoc 5: chay lenh "git push" de push code len github
+
+=== === === CACH KEO CODE TU GITHUB VE MAY TINH === === ===
+buoc 1: mo terminal, di chuyen den thu muc ma ban muon luu code ve may tinh
+buoc 2: chay lenh "git clone <repository_url>" de keo code tu github ve may tinh
+buoc 3: chay lenh "cd <repository_name>" de di chuyen vao thu muc code vua keo ve
+buoc 4: chay lenh "git pull" de cap nhat code moi nhat tu github ve may tinh
