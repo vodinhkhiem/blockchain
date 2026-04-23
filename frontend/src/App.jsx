@@ -1,13 +1,14 @@
-import React from 'react';
-import { BrowserRouter, Routes, Route } from 'react-router-dom';
-import './App.css';
-import './pages.css';
-import Layout from './components/Layout';
-import Dashboard from './pages/Dashboard.jsx';
-import Verify from './pages/Verify.jsx';
-import MyCredentials from './pages/MyCredentials.jsx';
-import Institutions from './pages/Institutions.jsx';
+import React from "react";
+import { BrowserRouter, Routes, Route } from "react-router-dom";
+import "./App.css";
+import "./pages.css";
+import Layout from "./components/Layout";
+import Dashboard from "./pages/Dashboard.jsx";
+import Verify from "./pages/Verify.jsx";
+import MyCredentials from "./pages/MyCredentials.jsx";
+import Institutions from "./pages/Institutions.jsx";
 
+// Bên trong <Routes>
 function App() {
   return (
     <BrowserRouter>

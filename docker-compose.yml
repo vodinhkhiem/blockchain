@@ -1,7 +1,4 @@
-version: '3.8'
-
 services:
-  # 1. DATABASE (SQL CỦA BẠN)
   db:
     image: postgres:15
     environment:
@@ -10,49 +7,47 @@ services:
       POSTGRES_DB: educollab
     volumes:
       - pgdata:/var/lib/postgresql/data
-      # Chạy file SQL này để tự động tạo bảng khi mới dựng
       - ./sql/init.sql:/docker-entrypoint-initdb.d/init.sql
     ports:
       - "5432:5432"
 
-  # 2. POSTGREST (Biến SQL thành API cho Frontend gọi thẳng)
   api:
     image: postgrest/postgrest
     environment:
       PGRST_DB_URI: postgres://admin:mysecretpassword@db:5432/educollab
       PGRST_DB_SCHEMA: public
-      PGRST_DB_ANON_ROLE: admin 
+      PGRST_DB_ANON_ROLE: admin
     ports:
       - "3000:3000"
     depends_on:
       - db
 
-  # 3. FRONTEND (UI/UX)
   frontend:
-    build: 
+    build:
       context: ./frontend
-    image: node:22-alpine
+      dockerfile: Dockerfile
+    restart: unless-stopped
     ports:
-      - "5173:5173" # Port mặc định của Vite/React
+      - "5173:5173"
     environment:
-      # Báo cho Frontend biết gọi SQL ở đâu
-      - VITE_SQL_API_URL=http://localhost:3000 
+      - VITE_SQL_API_URL=http://api:3000
+    volumes:
+      - ./frontend:/app
+      - /app/node_modules
     depends_on:
       - api
-    volumes:
-    - ./frontend:/app          
-    - /app/node_modules         
 
-    # 4. BLOCKCHAIN (Môi trường chạy Hardhat Node)
   hardhat:
     image: node:22-alpine
     working_dir: /app
     volumes:
       - ./:/app
-    # Cài đặt công cụ C++, cài thư viện và bật mạng Blockchain ảo
-    command: sh -c "apk add --no-cache python3 make g++ && npm install && npx hardhat node"
+    command: sh -c "apk add --no-cache python3 make g++ && npm install && npx hardhat node --hostname 0.0.0.0"
     ports:
       - "8545:8545"
 
 volumes:
   pgdata:
+# s1 docker-compose up -d
+# s2 docker exec -it blockchain-hardhat-1 ./node_modules/.bin/hardhat ignition deploy ignition/modules/SmartContract.js --network localhost
+# tuy chon docker-compose logs -f hardhat / api / frontend de xem log
