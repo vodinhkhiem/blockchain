@@ -1,0 +1,27 @@
+FROM node:22-alpine
+
+WORKDIR /app
+
+# Cài đặt dependencies hệ thống (nếu cần cho native modules)
+RUN apk add --no-cache python3 make g++
+
+# Copy file package.json trước để tận dụng cache Docker
+COPY package*.json ./
+
+# Cài đặt dependencies (bao gồm Tailwind CSS và các plugin cần thiết)
+RUN npm install
+
+# Cài đặt Tailwind CSS và các plugin bổ trợ
+RUN npm install -D tailwindcss postcss autoprefixer
+
+# Khởi tạo Tailwind config (nếu chưa có)
+RUN npx tailwindcss init -p || true
+
+# Copy toàn bộ source code
+COPY . .
+
+# Expose port
+EXPOSE 5173
+
+# Chạy ứng dụng ở chế độ development
+CMD ["npm", "run", "dev", "--", "--host"]
